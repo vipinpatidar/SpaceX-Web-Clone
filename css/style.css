@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600&family=Frank+Ruhl+Libre&family=Josefin+Sans&family=Lexend&family=Livvic&family=Poppins&display=swap');
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-size: 62.5%; */
+}
+body{
+font-family: 'Familjen Grotesk',
+        sans-serif;
+        background: black;
+        color: white;
+}
+/* Header and Nav bar */
+.main-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-top: 1rem; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  text-transform: uppercase;
+  height: 13vh;
+}
+/* logo */
+.manu a img{
+    width: 15vw;
+    height: 8vh;
+}
+.desktop-main-menu {
+    margin-right: 50px;
+}
+.desktop-main-menu ul{
+    display: flex;
+    /* gap: 1.3rem; */
+    list-style: none;
+}
+.desktop-main-menu ul li {
+    position: relative;
+    margin-right: 24px;
+    padding-bottom: 2px;
+}
+.desktop-main-menu ul li a {
+    text-decoration: none;
+    color: white;
+}
+/* Animation line */
+.desktop-main-menu ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: scale(0);
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-origin: right center;
+}
+.desktop-main-menu ul li a:hover::after {
+    transform: scale(1);
+    transform-origin: left center;
+    transition-duration: 0.4s;
+}
+section{
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-transform: uppercase;
+}
+/* Background images */
+.section-a{
+ background-image: url(../img/section-a.webp);
+}
+.section-inner{
+    position: absolute;
+    bottom: 10rem;
+    left: 15rem;
+    /* width: 36%; */
+}
+.section-inner h4{
+     font-size:1.4rem;
+     font-weight: 300;
+     margin-bottom: 5px;
+     animation: feadInUp 0.5s ease-in-out 0.2s;
+     animation-fill-mode: both;
+}
+.section-inner h2 {
+     font-size: 2.7rem;
+     font-weight: 700;
+     margin-bottom: 22px;
+     animation: feadInUp 0.5s ease-in-out 0.4s;
+     animation-fill-mode: both; 
+    /* Stop from showing at start */
+}
+.section-inner a{
+    animation: feadInUp 0.5s ease-in-out 0.6s;
+    animation-fill-mode: both;
+}
+.btn{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    min-width: 130px;
+    padding: 15px 50px;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    font-weight: bold;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    z-index: 2;
+    /* color: #fff; */
+}
+.btn:hover span{
+     color: #000;
+}
+
+.btn .hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #fff;
+    z-index: -1;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn:hover .hover{
+    transform: translateY(0);
+}
+.scroll-arrow{
+    position: absolute;
+    bottom: 50px;
+    left: 49%;
+    transform: translateX(-50%);
+    animation: bounce 4s infinite;
+}
+
+/* Hamburger Menu */
+.show{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+.hamburger{
+    position: fixed;
+    z-index: 10;
+    top: 40px;
+    right: 30px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: none;
+}
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom{
+    position: absolute;
+    height: 2px;
+    background-color: #fff;
+    width: 100%;
+   top:0;
+   left: 0;
+   margin-bottom: 2px;
+   transition: all 0.5s;
+}
+.hamburger-middle{
+    transform: translateY(5px);
+}
+.hamburger-bottom{
+    transform: translateY(10px);
+}
+.open{
+    transform: rotate(90deg);
+}
+.open .hamburger-top{
+    transform: rotate(45deg) translateY(6px) translateX(6px)
+}
+.open .hamburger-bottom{
+    transform: rotate(-45deg) translateY(6px) translateX(-6px)
+}
+.open .hamburger-middle{
+    display: none;
+}
+/* stop body scrolling */
+.stop-scrolling{
+    overflow: hidden;
+}
+
+/* mobile only */
+.mobile-only{
+    display: none;
+}
+
+/* /////// mobile Menu //////////// */
+.mobile-main-manu{
+    position: absolute;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    z-index: 4;
+    transition: all 0.5s;
+}
+.mobile-main-manu ul{ 
+    list-style: none;
+    margin: 2rem;
+    position: relative; 
+    top: 20%;
+    left: 4.5rem;
+    text-transform: uppercase;
+    /* text-align: right; */
+}
+.mobile-main-manu ul li{
+    /* position: absolute; */
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+.mobile-main-manu ul li {
+    color: #fff;
+    transition: color 0.6;
+}
+.mobile-main-manu ul li:hover {
+    color: #aaa;
+}
+
+.mobile-main-manu ul li a{
+     text-decoration: none;
+     color: #fff;
+}
+.mobile-show {
+    display: none;
+}
+/* Animation */
+
+@keyframes feadInUp{
+    0%{
+        opacity: 0;
+        transform: translateY(140px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    60%,
+    80%,
+    100%{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    40%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* /////////////////////////// Section B //////////////////////////////////////////////////// */
+
+.section-b {
+    background-image: url(../img/section-b.webp);
+}
+
+
+
+/* /////////////////////////// Section c //////////////////////////////////////////////////// */
+.section-c {
+    background-image: url(../img/section-c.webp);
+}
+
+/* /////////////////////////// Section D //////////////////////////////////////////////////// */
+.section-d {
+    background-image: url(../img/section-d.webp);
+}
+
+
+/* /////////////////////////// Section E //////////////////////////////////////////////////// */
+.section-e {
+    background-image: url(../img/section-e.webp);
+}
+
+
+/* /////////////////////////// Section F //////////////////////////////////////////////////// */
+.section-f {
+    background-image: url(../img/section-f.webp);
+}
+/* /////////////////////////// Falcon 9 //////////////////////////////////////////////////// */
+.bg-falcon-9{
+    background-image: url('../img/falcon-9.webp');
+}
+.bg-falcon-heavy{
+    background-image: url('../img/falcon-heavy.webp');
+}
+.bg-dragon{
+    background-image: url('../img/dragon.webp');
+}
+.section-animate{
+  animation: feadIn 2s ease-in-out;
+  /* transition: all 0.6s; */
+}
+.section-inner-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+}
+.section-inner-center h4{ 
+    font-size: 4rem;
+    margin-bottom: 0.4rem;
+    animation: feadInUp 0.5s ease-in-out 0.2s;
+    animation-fill-mode: both;
+}
+.section-inner-center p{
+    font-size: 1.5rem;
+    animation: feadInUp 0.5s ease-in-out 0.4s;
+    animation-fill-mode: both;
+}
+@keyframes feadIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+/* /////////////////////////// Counter //////////////////////////////////////////////////// */
+.stats{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+.counter{
+    font-size: 5rem;
+}
+.counter ~ h4{
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+/* ///////////////////////////Footer //////////////////////////////////////////////////// */
+footer{
+    height: 6rem;
+}
+footer ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+footer ul li{
+    margin-right: 30px;
+    padding-bottom: 2px;
+    position: relative;
+}
+footer ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+
+}
+footer ul li a::after{
+    content: "";
+    position: absolute;
+   bottom:0;
+   left: 0;
+   width: 100%;
+   background: #fff;
+   height: 1px;
+ transform: scale(0);
+ transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+ transform-origin: right center;
+}
+
+footer ul li:hover a::after{
+     transform: scale(1);
+ transform-origin: left center;
+    transition-duration: 0.4s;
+}
+
+
+/* /////////////////////////// Media quariy //////////////////////////////////////////////////// */
+
+@media(max-width:968px) {
+     .desktop-main-menu{
+        display: none;
+     }
+         .section-inner {
+             bottom: 75px;
+             left: 120px;
+         }
+    .main-header{
+        width: 0%;
+    }
+.manu a img {
+     width: 180px;
+     height: 40px;
+     display: block;
+     position:relative;
+     left: 7rem;
+}
+.mobile-main-manu ul {
+    top:10%;
+}
+.mobile-only{
+    display: block;
+}
+}
+
+@media(max-width:767px) {
+  
+    .section-inner{
+        bottom: 105px;
+        left:20px;
+    }
+  footer ul{
+    flex-wrap: wrap;
+       margin:2rem 1rem;
+       position: relative;
+  }
+  footer ul li{
+    margin: 0.5rem;
+  }
+  footer ul li:first-child{
+    position: absolute;
+    top:-2rem;
+
+  }
+.section-inner-center {
+    width: 100%;
+}
+}
